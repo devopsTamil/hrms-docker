@@ -1,0 +1,40 @@
+
+  <form [formGroup]="basicForm" #basic="ngForm">
+      <div>
+          <mat-form-field>
+            <input matInput placeholder="First name" formControlName="firstName" [class.is-invalid]="basic.submitted && basicForm.get('firstName')?.invalid">
+            <mat-error class="invalid-feedback"> First name is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="middle name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Last name" formControlName="lastName" [class.is-invalid]="basic.submitted && basicForm.get('lastName')?.invalid">
+            <mat-error class="invalid-feedback">Last name is required</mat-error>
+          </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Name(As per Aadhar)" formControlName="nameAadhar" [class.is-invalid]="basic.submitted && basicForm.get('nameAadhar')?.invalid">
+          <mat-error class="invalid-feedback">Aadhar name is required</mat-error>
+        </mat-form-field>
+      </div>
+    
+      <div>
+          <mat-form-field>
+            <input matInput placeholder="Birth Date" [matDatepicker]="picker" (focus)="picker.open()"  formControlName="bithday" [class.is-invalid]="basic.submitted && basicForm.get('bithday')?.invalid">
+            <mat-error class="invalid-feedback">Date is required</mat-error>
+          </mat-form-field>
+          <mat-datepicker #picker></mat-datepicker>
+      </div>
+        <!-- <p>
+            <mat-radio-group id="radio">
+            <mat-radio-button value="1">Father </mat-radio-button>
+            <mat-radio-button value="2">Husband </mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field>
+            <input matInput placeholder="name" formControlName="Fathername" [class.is-invalid]="basic.submitted && basicForm.get('Fathername')?.invalid">
+            <mat-error class="invalid-feedback">Father or Husband name is required</mat-error>
+            </mat-form-field>
+        </p> -->
+</form>

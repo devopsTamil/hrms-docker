@@ -1,0 +1,63 @@
+
+
+<form [formGroup]="correspondenceForm" #correspondence="ngForm">
+        <!-- <mat-card-title>communication Details</mat-card-title> -->
+        <div>
+            <mat-card-subtitle>Contact</mat-card-subtitle>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Home Phone">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Mobile Phone" formControlName="mobilePhone" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('mobilePhone')?.invalid">
+                <mat-error class="invalid-feedback">
+                    Mobile number is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" formControlName="email"  [class.is-invalid]="correspondence.submitted && correspondenceForm.get('email')?.invalid">
+                <mat-error class="invalid-feedback">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-card-subtitle>Correspondence Address</mat-card-subtitle>
+        </div> 
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Street Address" formControlName="streetAddress" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('streetAddress')?.invalid">
+                <mat-error class="invalid-feedback">
+                    Street address is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Apartment/Unit #" formControlName="apartmentUnit" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('streetAddress')?.invalid">
+                <mat-error class="invalid-feedback">
+                    Apartment/Unit is required
+                </mat-error>
+            </mat-form-field>
+        <!-- </div>
+        <div> -->
+            <mat-form-field>
+                <input matInput placeholder="City" formControlName="city" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('streetAddress')?.invalid">
+                <mat-error class="invalid-feedback">
+                    City is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="State" formControlName="state" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('streetAddress')?.invalid">
+                <mat-error class="invalid-feedback">
+                    State is required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="PIN Code" formControlName="pincode" [class.is-invalid]="correspondence.submitted && correspondenceForm.get('streetAddress')?.invalid">
+                <mat-error class="invalid-feedback">
+                    PIN code is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+    
+</form>

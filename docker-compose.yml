@@ -1,0 +1,31 @@
+version : '3.5'
+services:
+  hrms-fe:
+    container_name: hrms-fe-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hrms:v1
+    command: ng serve --host 0.0.0.0 --port 3001
+    ports:
+      - "3001:3001"
+    volumes:
+      - hrms-vol:/usr/src/app
+  hrms-be:
+    container_name: hrms-be-container
+    image: hrms:v1
+    command: json-server --watch --host 0.0.0.0 -p 3000 data/family_details.json
+    ports:
+      - "3000:3000"
+    volumes:
+      - hrms-vol:/usr/src/app
+  test-service:
+    container_name: test-container
+    image: nginx:latest
+    ports:
+      - "81:80"
+    volumes:
+      - hrms-vol:/usr/share/nginx/html/
+
+volumes:
+  hrms-vol:
